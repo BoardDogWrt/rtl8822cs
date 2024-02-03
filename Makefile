@@ -54,19 +54,19 @@ CONFIG_SDIO_HCI = y
 CONFIG_GSPI_HCI = n
 ########################## Features ###########################
 CONFIG_AP_MODE = y
-CONFIG_P2P = n
+CONFIG_P2P = y
 CONFIG_MP_INCLUDED = y
 CONFIG_POWER_SAVING = n
 CONFIG_IPS_MODE = default
 CONFIG_LPS_MODE = default
 CONFIG_USB_AUTOSUSPEND = n
 CONFIG_HW_PWRP_DETECTION = n
-CONFIG_BT_COEXIST = n
+CONFIG_BT_COEXIST = y
 CONFIG_WAPI_SUPPORT = n
 CONFIG_EFUSE_CONFIG_FILE = y
 CONFIG_EXT_CLK = n
 CONFIG_TRAFFIC_PROTECT = n
-CONFIG_LOAD_PHY_PARA_FROM_FILE = n
+CONFIG_LOAD_PHY_PARA_FROM_FILE = y
 CONFIG_TXPWR_BY_RATE = y
 CONFIG_TXPWR_BY_RATE_EN = y
 CONFIG_TXPWR_LIMIT = y
@@ -1420,7 +1420,7 @@ ifeq ($(KERNELRELEASE),)
 $(info *  Building driver with Android support)
 endif
 EXTRA_CFLAGS += -DCONFIG_PLATFORM_ANDROID
-EXTRA_CFLAGS += -DRTW_ENABLE_WIFI_CONTROL_FUNC -DCONFIG_RADIO_WORK
+EXTRA_CFLAGS += -DCONFIG_POWER_SAVING
 ifeq ($(CONFIG_SDIO_HCI), y)
 EXTRA_CFLAGS += -DRTW_SUPPORT_PLATFORM_SHUTDOWN
 endif
@@ -1430,7 +1430,7 @@ ifeq ($(KERNELRELEASE),)
 $(info *)
 $(info *    Kernel TOP-Dir: $(KSRC) )
 $(info *)
-$(info *  Copyright 2020 FriendlyELEC (http://www.friendlyarm.com/))
+$(info *  Copyright 2024 FriendlyELEC (http://www.friendlyarm.com/))
 $(info ********************************************************************************)
 endif
 endif # END of VENDOR_FRIENDLYARM }
